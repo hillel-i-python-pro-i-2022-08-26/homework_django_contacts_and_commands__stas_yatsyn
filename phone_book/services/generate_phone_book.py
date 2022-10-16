@@ -12,7 +12,7 @@ fake = Faker()
 def generate_phone_number() -> PHONE_NUMBER:
     suffix = ["63", "50", "67", "97", "98", "73", "68", "66"]
     prefix = randint(1000000, 9999999)
-    return f"+38 0{choice(suffix)} {prefix}"
+    return f"0{choice(suffix)}{prefix}"
 
 
 def generate_contact_birthday() -> BIRTHDAY:
