@@ -16,3 +16,5 @@ class PhoneBook(models.Model):
 
     class Meta:
         ordering = ["-create_at"]
+        verbose_name = "Contact"
+        verbose_name_plural = "Phone Book"

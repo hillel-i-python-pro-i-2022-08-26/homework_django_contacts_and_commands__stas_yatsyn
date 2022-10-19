@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "base.apps.BaseConfig",
     "phone_book.apps.PhoneBookConfig",
     "admin_users",
+    "session_app.apps.SessionAppConfig",
 ]
 
 MIDDLEWARE = [
