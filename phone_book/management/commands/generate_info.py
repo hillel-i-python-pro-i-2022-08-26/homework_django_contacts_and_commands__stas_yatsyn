@@ -38,8 +38,7 @@ class Command(BaseCommand):
             self.logger.info(f"Generate: {count} of {amount}")
             if not options["ignore"]:
                 info.is_auto_generated = True
-            if options["amount"] > 100:
-                raise Exception("It's going to be hard to delete")
+
             info.save()
             self.logger.info(f"Generate {count} of {amount} DONE")
 

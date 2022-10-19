@@ -15,3 +15,7 @@
 * `python manage.py delete_info` - *delete auto generate users info*
 * `python manage.py delete_info --all` - *delete ALL users info*
 * `make init-dev-i-create-superuser` - *create superuser for admin access*
+* `/session/` - *view user session info*
+1) View session key
+2) View number of visits
+3) View last time of user visit
