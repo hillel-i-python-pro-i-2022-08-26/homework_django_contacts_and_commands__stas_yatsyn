@@ -18,3 +18,8 @@ pre-commit-run:
 .PHONY: pre-commit-run-all
 pre-commit-run-all:
 	@pre-commit run --all-files
+
+# Init superuser (admin)
+.PHONY: init-dev-i-create-superuser
+init-dev-i-create-superuser:
+	@DJANGO_SUPERUSER_PASSWORD=admin1234 python manage.py createsuperuser --user admin1 --email admin@gmail.com --no-input

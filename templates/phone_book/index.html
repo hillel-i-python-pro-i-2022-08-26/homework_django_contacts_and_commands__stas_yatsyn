@@ -7,9 +7,9 @@
     <h1>{{ title }}</h1>
 
     {% for contact in contacts %}
-        <p>Name: {{ contact.name }}.</p>
-        <p>Phone number: {{ contact.phone }}</p>
-        <p>Date of birthday: {{ contact.birthday_date|date:"d.m.Y" }}</p>
+        <p>Ім'я: {{ contact.name }}.</p>
+        <p>Номер телефону: {{ contact.phone }}</p>
+        <p>Дата народження: {{ contact.birthday_date|date:"d.m.Y" }}</p>
 
         <p><a href="{% url 'phone_book:user' contact.pk %}">Reed more</a></p>
 
