@@ -11,4 +11,4 @@ class UserInfo(NamedTuple):
     email: str
 
     def __str__(self):
-        return f"Username: {self.name}.\n User email: {self.email}. \nPassword: {self.password}"
+        return f"Користувач: {self.name}.\n Email: {self.email}. \nПароль: {self.password}"

@@ -20,7 +20,7 @@ def generate_names(amount: int) -> list[str]:
 def generate_emails(amount: int) -> list[str]:
     email_list: list[str] = []
     for email in range(amount):
-        email = fake.email()
+        email = fake.free_email()
         if email in email_list:
             email = f"{fake.first_name().lower()}{randint(1, 1000)}@gmail.com"
         email_list.append(email)
@@ -30,9 +30,9 @@ def generate_emails(amount: int) -> list[str]:
 def generate_passwords(amount: int) -> list[str]:
     password_list: list[str] = []
     for password in range(amount):
-        password = fake.password()
+        password = fake.password(special_chars=False)
         if password in password_list:
-            password = fake.password().reverse()
+            password = fake.password(special_chars=False).reverse()
         password_list.append(password)
     return password_list
 

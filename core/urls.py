@@ -22,4 +22,5 @@ urlpatterns = [
     path("greetings/", include("greetings.urls")),
     path("users/", include("users_generator.urls")),
     path("phone-book/", include("phone_book.urls")),
+    path("session/", include("session_app.urls")),
 ]
