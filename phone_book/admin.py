@@ -3,7 +3,7 @@ from django.contrib import admin
 from . import models
 
 
-@admin.register(models.PhoneBook)
+@admin.register(models.Contact)
 class PhoneBookAdmin(admin.ModelAdmin):
     list_display = ("name", "phone", "birthday_date", "is_auto_generated")
     search_fields = (

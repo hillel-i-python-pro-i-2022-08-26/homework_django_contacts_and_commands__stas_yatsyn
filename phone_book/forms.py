@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 
 from core import settings
-from .models import PhoneBook
+from .models import Contact
 
 
 class AddUserForm(forms.ModelForm):
@@ -13,7 +13,7 @@ class AddUserForm(forms.ModelForm):
         self.fields["phone"].help_text = "enter your phone number starts with 0..."
 
     class Meta:
-        model = PhoneBook
+        model = Contact
         fields = ("name", "phone", "birthday_date")
 
     def clean_phone(self):

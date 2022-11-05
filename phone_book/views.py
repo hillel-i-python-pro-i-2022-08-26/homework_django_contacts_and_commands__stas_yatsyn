@@ -3,11 +3,11 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 
 from phone_book.forms import AddUserForm
-from phone_book.models import PhoneBook
+from phone_book.models import Contact
 
 
 def show_contacts(request: HttpRequest) -> HttpResponse:
-    contacts = PhoneBook.objects.all()
+    contacts = Contact.objects.all()
     return render(
         request,
         "phone_book/index.html",
@@ -52,9 +52,9 @@ def show_user_search(request: HttpRequest) -> HttpResponse:
     query = request.GET.get("q")
 
     if query.startswith("0"):
-        contact = PhoneBook.objects.get(phone=query)
+        contact = Contact.objects.get(phone=query)
     else:
-        contact = PhoneBook.objects.get(pk=query)
+        contact = Contact.objects.get(pk=query)
     return render(
         request,
         "phone_book/user_info.html",
@@ -65,15 +65,15 @@ def show_user_search(request: HttpRequest) -> HttpResponse:
     )
 
 
-def delete_user(request: HttpRequest, pk: PhoneBook.pk) -> HttpResponse:
-    contact = get_object_or_404(PhoneBook, pk=pk)
+def delete_user(request: HttpRequest, pk: Contact.pk) -> HttpResponse:
+    contact = get_object_or_404(Contact, pk=pk)
     contact.delete()
     messages.success(request, f"User {contact.name} deleted.")
     return redirect("phone_book:index")
 
 
-def update_user_info(request: HttpRequest, pk: PhoneBook.pk) -> HttpResponse | HttpResponseRedirect:
-    contact = get_object_or_404(PhoneBook, pk=pk)
+def update_user_info(request: HttpRequest, pk: Contact.pk) -> HttpResponse | HttpResponseRedirect:
+    contact = get_object_or_404(Contact, pk=pk)
     if request.method == "POST":
         form = AddUserForm(request.POST, instance=contact)
         if form.is_valid():
@@ -85,8 +85,8 @@ def update_user_info(request: HttpRequest, pk: PhoneBook.pk) -> HttpResponse | H
         return render(request, "phone_book/update_user.html", {"title": "Update User", "form": form})
 
 
-def show_user_info(request: HttpRequest, pk: PhoneBook.pk) -> HttpResponse:
-    contact = get_object_or_404(PhoneBook, pk=pk)
+def show_user_info(request: HttpRequest, pk: Contact.pk) -> HttpResponse:
+    contact = get_object_or_404(Contact, pk=pk)
     return render(
         request,
         "phone_book/user.html",

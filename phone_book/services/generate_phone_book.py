@@ -3,7 +3,7 @@ from typing import Iterator
 
 from faker import Faker
 
-from phone_book.models import PhoneBook
+from phone_book.models import Contact
 from phone_book.services.type_variables import PHONE_NUMBER, BIRTHDAY
 
 fake = Faker()
@@ -22,9 +22,9 @@ def generate_contact_birthday() -> BIRTHDAY:
     return f"{year}-{month}-{day}"
 
 
-def organize_info(amount: int = 10) -> Iterator[PhoneBook]:
+def organize_info(amount: int = 10) -> Iterator[Contact]:
     for _ in range(amount):
-        yield PhoneBook(
+        yield Contact(
             name=fake.first_name(),
             phone=generate_phone_number(),
             birthday_date=generate_contact_birthday(),

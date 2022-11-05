@@ -31,7 +31,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):  # sourcery skip: raise-specific-error
         amount: int = options["amount"]
         self.logger.info(f"Generate {amount} of users info")
-        number_of_generations = models.PhoneBook.objects.all().count()
+        number_of_generations = models.Contact.objects.all().count()
         self.logger.info(f"Now amount of users info is: {number_of_generations}")
 
         for count, info in enumerate(organize_info(amount=amount), start=1):
@@ -42,5 +42,5 @@ class Command(BaseCommand):
             info.save()
             self.logger.info(f"Generate {count} of {amount} DONE")
 
-        info_after_generation = models.PhoneBook.objects.all().count()
+        info_after_generation = models.Contact.objects.all().count()
         self.logger.info(f"Amount of data:{info_after_generation}")
