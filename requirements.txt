@@ -9,3 +9,9 @@ pre-commit==2.20.0
 faker==15.0.0
 # Install for query
 webargs==8.2.0
+
+# Install for .env file
+django-environ==0.9.0
+
+# Istall for postgres
+psycopg2-binary==2.9.5

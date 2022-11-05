@@ -6,8 +6,8 @@ homework-i-run:
 # install requirements
 .PHONY: init-dev
 init-dev:
-	@python -m pip install --upgrade pip
-	pip -requirement requirements.txt
+	@pip install --upgrade pip && \
+	pip install --requirement requirements.txt
 
 # Run tools for files from commit.
 .PHONY: pre-commit-run
@@ -32,7 +32,8 @@ util-i-kill-by-port:
 .PHONY: init-config
 # Init config files
 init-config:
-	@cp docker-compose.override.homework.yml docker-compose.override.yml
+	@cp docker-compose.override.homework.yml docker-compose.override.yml && \
+		cp .env.example .env
 
 .PHONY: d-homework-i-run
 # Make all actions needed for run homework from zero.
@@ -50,9 +51,18 @@ d-homework-i-purge:
 # Just run with docker
 d-run:
 	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
+		COMPOSE_PROFILES=full_run_in_docker \
 		docker-compose \
 			up --build
 
+
+.PHONY: d-run-i-local-run
+# Just run
+d-run-i-local-run:
+	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
+		COMPOSE_PROFILES=local_run \
+		docker-compose \
+			up --build
 
 .PHONY: d-purge
 # Purge all data related with services
