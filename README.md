@@ -15,6 +15,8 @@
 * `python manage.py delete_info` - *delete auto generate users info*
 * `python manage.py delete_info --all` - *delete ALL users info*
 * `make init-dev-i-create-superuser` - *create superuser for admin access*
+* `make d-homework-i-run` - *start project in docker*
+* `d-homework-i-purge` - *make all actions needed for purge homework related data.*
 * `/session/` - *view user session info*
 1) View session key
 2) View number of visits
