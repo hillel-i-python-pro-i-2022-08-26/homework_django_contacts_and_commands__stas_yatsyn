@@ -18,3 +18,14 @@ pre-commit-run:
 .PHONY: pre-commit-run-all
 pre-commit-run-all:
 	@pre-commit run --all-files
+
+# Init superuser (admin)
+.PHONY: init-dev-i-create-superuser
+init-dev-i-create-superuser:
+	@DJANGO_SUPERUSER_PASSWORD=admin1234 python manage.py createsuperuser --user admin1 --email admin@gmail.com --no-input
+
+
+# Kill all process on port 8000
+.PHONY: util-i-kill-by-port
+util-i-kill-by-port:
+	@sudo lsof -i:8000 -Fp | head -n 1 | sed 's/^p//' | xargs sudo kill
