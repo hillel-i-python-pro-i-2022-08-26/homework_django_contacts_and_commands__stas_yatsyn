@@ -1,11 +1,11 @@
 # Istall for wsgi
-django==4.1.2
+django==4.1.1
 # Istall for check code
-black==22.10.0
+black==22.8.0
 flake8==5.0.4
 pyupgrade==2.38.2
 pre-commit==2.20.0
 # Install for fake greetings
-faker==15.1.1
+faker==15.0.0
 # Install for query
 webargs==8.2.0
