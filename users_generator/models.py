@@ -11,4 +11,4 @@ class UserInfo(NamedTuple):
     email: str
 
     def __str__(self):
-        return f"Користувач: {self.name}.\n Email: {self.email}. \nПароль: {self.password}"
+        return f"Користувач ==> {self.name}   |||    Email ==> {self.email}   |||   Пароль ==> {self.password}"

@@ -12,7 +12,7 @@ def show_contacts(request: HttpRequest) -> HttpResponse:
         request,
         "phone_book/index.html",
         {
-            "title": "Phone Book",
+            "title": "Телефонна книга",
             "contacts": contacts,
         },
     )
@@ -32,7 +32,7 @@ def add_user(request: HttpRequest) -> HttpResponse | HttpResponseRedirect:
         request,
         "phone_book/add_user.html",
         {
-            "title": "Add User",
+            "title": "Додати користувача",
             "form": form,
         },
     )
@@ -43,7 +43,7 @@ def search_user_info(request: HttpRequest) -> HttpResponse:
         request,
         "phone_book/user_search.html",
         {
-            "title": "Search User",
+            "title": "Шукати користувача",
         },
     )
 
@@ -59,7 +59,7 @@ def show_user_search(request: HttpRequest) -> HttpResponse:
         request,
         "phone_book/user_info.html",
         {
-            "title": f"Info of user {contact.name}",
+            "title": f"Інформація про користувача {contact.name}",
             "contact": contact,
         },
     )
@@ -68,7 +68,7 @@ def show_user_search(request: HttpRequest) -> HttpResponse:
 def delete_user(request: HttpRequest, pk: Contact.pk) -> HttpResponse:
     contact = get_object_or_404(Contact, pk=pk)
     contact.delete()
-    messages.success(request, f"User {contact.name} deleted.")
+    messages.success(request, f"Користувач {contact.name} видалений.")
     return redirect("phone_book:index")
 
 
@@ -78,11 +78,11 @@ def update_user_info(request: HttpRequest, pk: Contact.pk) -> HttpResponse | Htt
         form = AddUserForm(request.POST, instance=contact)
         if form.is_valid():
             form.save()
-            messages.success(request, "User has been updated successfully.")
+            messages.success(request, "Дані користувача оновлено успішно.")
             return redirect("phone_book:user", pk=pk)
         else:
             form = AddUserForm(instance=contact)
-        return render(request, "phone_book/update_user.html", {"title": "Update User", "form": form})
+        return render(request, "phone_book/update_user.html", {"title": "Редагувати контакт", "form": form})
 
 
 def show_user_info(request: HttpRequest, pk: Contact.pk) -> HttpResponse:
@@ -91,7 +91,7 @@ def show_user_info(request: HttpRequest, pk: Contact.pk) -> HttpResponse:
         request,
         "phone_book/user.html",
         {
-            "title": f"Info {contact.name}.",
+            "title": f"Iнформація про користувача {contact.name}.",
             "contact": contact,
         },
     )
