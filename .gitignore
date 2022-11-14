@@ -3,3 +3,4 @@ venv/
 db/*
 !db/.gitkeep
 docker-compose.override.yml
+.env
