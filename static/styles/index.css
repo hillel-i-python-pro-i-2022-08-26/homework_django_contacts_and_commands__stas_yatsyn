@@ -1,0 +1,37 @@
+.header {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.logo {
+    width: 3em;
+    height: 3em;
+}
+
+.logo > img {
+    width: 3em;
+    height: 3em;
+
+}
+
+.style-for-contacts {
+    padding: 1em;
+    margin: 1em;
+    border: 1em solid #ffffff;
+    width: fit-content;
+    border-radius: 20%;
+    background-color: #3a3a3a;
+    text-shadow: 2px 2px 5px #c2c2c2;
+    box-shadow: 6px 6px 20px white;
+}
+
+.style-for-contacts:hover {
+    border: 1em solid #5e5e5e;
+    box-shadow: 6px 6px 20px #727272;
+}
+
+.contacts-to-row {
+    display: flex;
+}

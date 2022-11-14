@@ -1,16 +1,21 @@
-<header>
-    <ul>
-        <li>
-            <a href="{% url 'base:index' %}">Home</a>
-        </li>
-        <li>
-            <a href="{% url 'greetings:index' %}">Greetings</a>
-        </li>
-        <li>
-            <a href="{% url 'users_generator:index' %}">Users</a>
-        </li>
-        <li>
-            <a href="{% url 'phone_book:index' %}">Phone Book</a>
-        </li>
+{% load static %}
+
+<header class="header">
+<div class="p-3 mb-2 bg-light text-dark">
+  <ul class="nav justify-content-center">
+    <img src="{% static "/images/python.svg"%}" class="logo" />
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'base:index' %}"><button type="submit" class="btn btn-primary">Домашня сторінка</button></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'greetings:index' %}"><button type="submit" class="btn btn-primary">Привітання</button></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'users_generator:index' %}"><button type="submit" class="btn btn-primary">Користувачі</button></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'phone_book:index' %}"><button type="submit" class="btn btn-primary">Телефонна книга</button></a>
+    </li>
     </ul>
+</div>
 </header>

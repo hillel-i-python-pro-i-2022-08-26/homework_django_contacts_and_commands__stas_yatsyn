@@ -1,5 +1,11 @@
-<ul>
-    <li><a href="{% url 'phone_book:index' %}">All users</a></li>
-    <li><a href="{% url 'phone_book:add_user' %}">Add User</a></li>
-    <li><a href="{% url 'phone_book:user_search' %}">Search User</a></li>
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+      <a class="nav-link" href="{% url 'phone_book:index' %}"><button type="submit" class="btn btn-primary">Всі контакти</button></a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="{% url 'phone_book:add_user' %}"><button type="submit" class="btn btn-primary">Додати контакт</button></a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="{% url 'phone_book:user_search' %}"><button type="submit" class="btn btn-primary">Шукати контакт</button></a>
+  </li>
 </ul>
