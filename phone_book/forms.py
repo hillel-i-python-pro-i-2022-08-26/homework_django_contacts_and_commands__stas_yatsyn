@@ -11,10 +11,11 @@ class AddUserForm(forms.ModelForm):
         self.fields["birthday_date"].input_formats = settings.DATE_INPUT_FORMATS
         self.fields["birthday_date"].help_text = "Формат: dd.mm.YYYY"
         self.fields["phone"].help_text = "Введіть номер телефону починаючи з 0..."
+        self.fields["avatar"].help_text = "Завантаж логотип!!!"
 
     class Meta:
         model = Contact
-        fields = ("name", "phone", "birthday_date")
+        fields = ("name", "phone", "birthday_date", "avatar")
 
     def clean_phone(self):
         phone = self.cleaned_data["phone"]

@@ -20,7 +20,7 @@ def show_contacts(request: HttpRequest) -> HttpResponse:
 
 def add_user(request: HttpRequest) -> HttpResponse | HttpResponseRedirect:
     if request.method == "POST":
-        form = AddUserForm(request.POST)
+        form = AddUserForm(request.POST, request.FILES)
         if form.is_valid():
             contact = form.save()
             contact.save()
@@ -75,7 +75,7 @@ def delete_user(request: HttpRequest, pk: Contact.pk) -> HttpResponse:
 def update_user_info(request: HttpRequest, pk: Contact.pk) -> HttpResponse | HttpResponseRedirect:
     contact = get_object_or_404(Contact, pk=pk)
     if request.method == "POST":
-        form = AddUserForm(request.POST, instance=contact)
+        form = AddUserForm(request.POST, request.FILES, instance=contact)
         if form.is_valid():
             form.save()
             messages.success(request, "Дані користувача оновлено успішно.")
