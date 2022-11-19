@@ -26,5 +26,7 @@
 !requirements.txt
 !docker/app
 !static
+!.env
+!media
 
-Exclude_project_files__stop
+# Exclude_project_files__stop

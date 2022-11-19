@@ -38,6 +38,7 @@ COPY --chown=${USER} ./users_generator users_generator
 COPY --chown=${USER} ./session_app session_app
 COPY --chown=${USER} ./templates templates
 COPY --chown=${USER} ./static static
+COPY --chown=${USER} ./media media
 # Copy_apps__stop
 
 # Copy_templates__start

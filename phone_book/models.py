@@ -1,11 +1,12 @@
 import uuid
 
 from django.db import models
+from django.urls import reverse
 
 
 def get_icon_path(instance, filename: str) -> str:
     _, extension = filename.rsplit(".", maxsplit=1)
-    return f"animals/animal/avatar/{instance.pk}/{uuid.uuid4()}/avatar.{extension}"
+    return f"contacts/contact/avatar/{instance.pk}/{uuid.uuid4()}/avatar.{extension}"
 
 
 class Contact(models.Model):
@@ -31,3 +32,6 @@ class Contact(models.Model):
         ordering = ["-create_at"]
         verbose_name = "Contact"
         verbose_name_plural = "Phone Book"
+
+    def get_absolute_url(self):
+        return reverse('phone_book:index')
