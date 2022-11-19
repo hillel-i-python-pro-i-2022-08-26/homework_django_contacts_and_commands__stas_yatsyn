@@ -1,10 +1,7 @@
-from django.contrib import messages
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView, CreateView, DeleteView
-
-from phone_book.forms import AddUserForm
 from phone_book.models import Contact
 
 
