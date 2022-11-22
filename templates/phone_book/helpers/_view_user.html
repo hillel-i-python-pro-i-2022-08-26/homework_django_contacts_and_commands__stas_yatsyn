@@ -2,6 +2,12 @@
 
 <h1 align="center">{{ title }}</h1>
 
+<div>
+    <p>Name: {{ contact.name }}.</p>
+    {% if contact.avatar %}
+        <img src="{{ contact.avatar.url }}" width="400px">
+    {% endif %}
+</div>
 <p>Ім'я: {{ contact.name }}.</p>
 <p>Номер телефону: {{ contact.phone }}</p>
 <p>Дата народження: {{ contact.birthday_date|date:"d.m.Y" }}</p>
