@@ -24,6 +24,22 @@
                     <button type="submit" class="btn btn-primary">Телефонна книга</button>
                 </a>
             </li>
+            <li class="nav-item">
+                {% if user.is_authenticated %}
+                    {% if user.avatar %}
+                        <p>Привіт {{ user.username }}!
+                            <img src="{{ user.avatar.url }}" class="logo" alt="{{ user.username }}">
+                        </p>
+                    {% else %}
+                        <p>Привіт {{ user.username }}!</p>
+                    {% endif %}
+                    Вийти з аккаунту ==><a href="{% url 'logout' %}">Log out</a>
+                {% else %}
+                    <p>Ти незалогінився, аяяяй!!! ==>
+                        <a href="{% url 'login' %}">Log In</a></p>
+                    Зареєструватись ==> <a href="{% url 'signup' %}">SignUp</a>
+                {% endif %}
+            </li>
         </ul>
     </div>
 </header>

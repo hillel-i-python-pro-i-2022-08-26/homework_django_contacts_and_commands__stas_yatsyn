@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # Local_apps__stop
     "crispy_forms",
     "crispy_bootstrap5",
+    'accounts.apps.AccountsConfig'
 ]
 
 MIDDLEWARE = [
@@ -59,6 +60,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+LOGIN_REDIRECT_URL = 'base:index'
+LOGOUT_REDIRECT_URL = 'base:index'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -145,6 +148,10 @@ MEDIA_ROOT = BASE_DIR.joinpath("media")
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+
+
 DATE_INPUT_FORMATS = [
     "%d-%m-%Y",
     "%d.%m.%Y",
