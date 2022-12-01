@@ -27,6 +27,5 @@
 !docker/app
 !static
 !.env
-!media
 
 # Exclude_project_files__stop
