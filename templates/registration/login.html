@@ -1,4 +1,5 @@
 {% extends 'base.html' %}; {% block content %}
+    Якщо не зареєстрований, реєструватись туть ==> <a href="{% url 'signup' %}">SignUp</a>
 <h2>Log In</h2>
 <form method="post">
   {% csrf_token %}
