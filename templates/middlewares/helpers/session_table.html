@@ -1,0 +1,27 @@
+<h2>Загальна кількість відвідуваннь: {{ total_visits }}. Кількість відвіданих сторінок: {{ count_of_visited_pages }}</h2>
+<table class="table table-dark table-striped">
+    <thead>
+    <tr>
+        <th scope="col">User</th>
+        <th scope="col">Session key</th>
+        <th scope="col">Path</th>
+        <th scope="col">Count of visits</th>
+        <th scope="col">Last time visit</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for session in object_list %}
+        <tr>
+            {% if user.is_authenticated %}
+                <td>{{ session.user }}</td>
+            {% else %}
+                <td>Anonymous</td>
+            {% endif %}
+            <td>{{ session.session_key }}</td>
+            <td>{{ session.path }}</td>
+            <td>{{ session.count_of_visits }}</td>
+            <td>{{ session.last_visit_at }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "phone_book.apps.PhoneBookConfig",
     "admin_users",
     "session_app.apps.SessionAppConfig",
+    "middleware.apps.MiddlewareConfig",
     # Local_apps__stop
     "crispy_forms",
     "crispy_bootstrap5",
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "middleware.middleware.SimpleLoggingMiddleware",
 ]
 
 LOGIN_REDIRECT_URL = 'base:index'

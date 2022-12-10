@@ -25,6 +25,11 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{% url 'middleware:index' %}">
+                    <button type="submit" class="btn btn-primary">middleware</button>
+                </a>
+            </li>
+            <li class="nav-item">
                 {% if user.is_authenticated %}
                     {% if user.avatar %}
                         <p>Привіт {{ user.username }}!

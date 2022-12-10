@@ -6,6 +6,6 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = (
-            "username",
             "avatar",
+            "username",
         )

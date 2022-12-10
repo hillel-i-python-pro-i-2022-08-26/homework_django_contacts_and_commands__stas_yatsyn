@@ -1,0 +1,17 @@
+
+
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{% url 'middleware:all_info' %}">Вся інформація</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'middleware:current_session_info' request.session.session_key %}">Інформація
+        про теперішню сесію</a>
+    </li>
+    {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'middleware:current_user_info' user.pk %}">Інформація про дії
+                користувача</a>
+        </li>
+    {% endif %}
+</ul>
