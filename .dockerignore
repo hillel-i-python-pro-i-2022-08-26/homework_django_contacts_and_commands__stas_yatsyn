@@ -10,6 +10,8 @@
 !phone_book
 !users_generator
 !session_app
+!accounts
+!middleware
 
 # Exclude_apps__stop
 

@@ -1,10 +1,14 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views.generic import UpdateView, CreateView, DeleteView
+
 from phone_book.models import Contact
 
 
+@method_decorator(login_required, name='post')
 class ContactCreateView(CreateView):
     model = Contact
     fields = (
@@ -16,6 +20,7 @@ class ContactCreateView(CreateView):
     template_name_suffix = '_add_form'
 
 
+@method_decorator(login_required, name='post')
 class ContactUpdateView(UpdateView):
     model = Contact
     fields = (
@@ -27,6 +32,7 @@ class ContactUpdateView(UpdateView):
     template_name_suffix = '_update_form'
 
 
+@method_decorator(login_required, name='post')
 class ContactDeleteView(DeleteView):
     model = Contact
     success_url = reverse_lazy('phone_book:index')
